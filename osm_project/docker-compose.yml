@@ -1,0 +1,18 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_DB=django_osm_db
+      - POSTGRES_USER=alex_serv
+      - POSTGRES_PASSWORD=Redips
+  web:
+    build: .
+    command: python manage.py runserver 127.0.0.1:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Interactive maps for Django web apps</title>
+            <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script>
+            <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+    <body>
+        <h1 style='text-align: center'>
+            <p>www.openstreetmap.org</p>
+        </h1>
+        <div id='map' style='width: 400px; height: 300px;
+            margin-left: auto; margin-right: auto;
+            border:2px solid red;'></div>
+            <script>
+                mapboxgl.accessToken = 'pk.eyJ1IjoiYWxleHZzIiwiYSI6ImNraTk0b3BtcjBjOWMycmxiZTVoejhsaTcifQ._GauRo7uCwtAgWAHnwd8kQ';
+                var map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [{{ longitude }}, {{ latitude }}],
+                zoom: {{ zoom }}
+                });
+
+            </script>
+    <p style="text-align: center;">
+        <br />
+        <iframe style="border: 2px solid green;
+            " src="https://www.openstreetmap.org/export/embed.html?bbox={{ box_lat_a }}%2C{{ box_lon_a }}%2C{{ box_lat_b }}%2C{{ box_lon_b }}&amp;layer=transportmap&amp;marker={{ latitude }}%2C{{ longitude }}"
+                width="400px" height="300px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+        <br />
+    </p>
+    </body>
+</html>

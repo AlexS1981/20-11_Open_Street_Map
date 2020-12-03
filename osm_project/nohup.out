@@ -1,0 +1,5 @@
+docker: 'daemon' is not a docker command.
+See 'docker --help'
+Docker version 20.10.0-rc2, build dca98e3
+docker: 'daemon' is not a docker command.
+See 'docker --help'
